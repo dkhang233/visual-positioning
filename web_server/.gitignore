@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask environment variables
+.env
+instance/
+*.sqlite3
+
+# Logs and databases
+*.log
+*.db
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+.env.bak/
+
+# Pytest
+.pytest_cache/
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+
+# Python egg metadata
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Migrations (if using Flask-Migrate)
+migrations/
+
+# IDEs
+.idea/

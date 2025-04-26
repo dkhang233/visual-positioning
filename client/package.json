@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "client": "file:",
-    "leaflet": "^1.9.4",
     "mathjs": "^14.4.0",
     "ol": "^10.5.0"
   }
