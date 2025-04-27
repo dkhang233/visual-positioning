@@ -4,14 +4,51 @@ import uuid
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
 
-# from spatial_server.hloc_localization import localizer
-
 localize_router = APIRouter(prefix="/localize")
+
+
+# Lấy ảnh từ client và lưu vào thư mục
+@localize_router.post("/image")
+def init_localization():
+    return "ok"
+
+
+# Trả về thông tin pose cho client
+@localize_router.get("/pose")
+def init_localization():
+    # Giả sử bạn đã có một pose nào đó để trả về
+    pose = {
+        "x": 1.0,
+        "y": 2.0,
+        "z": 3.0,
+        "rotation": {
+            "roll": 0.1,
+            "pitch": 0.2,
+            "yaw": 0.3
+        }
+
+    }
+    return jsonable_encoder(pose)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Xác định bản đồ + vị trí
 @localize_router.post("/init")
 def init_localization(name: str, request):
-    return jsonable_encoder()
+    return jsonable_encoder("haha")
 
 # Xác định vị trí khi di chuyển trong bản đồ
 @localize_router.post("{name}/navigate")
