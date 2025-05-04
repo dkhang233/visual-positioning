@@ -26,11 +26,14 @@ def init_localization():
             "pitch": 0.2,
             "yaw": 0.3
         }
-
     }
     return jsonable_encoder(pose)
 
-
+#update vị trí trong 10s
+def update_location(duration_secondss = 10):
+    for i in range(duration_seconds):
+        jsonable_encoder()
+        time.sleep(1)
 
 
 
