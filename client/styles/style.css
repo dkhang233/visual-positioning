@@ -16,8 +16,8 @@ html, body {
 
 #camera-popup {
   position: fixed;
-  width: 240px;
-  height: 180px;
+  width: 340px;
+  height: 380px;
   top: 20px;
   right: 20px;
   background: #000;
@@ -38,6 +38,42 @@ html, body {
   pointer-events: none;
   background-color: aqua;
 }
+
+
+#toggle-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+#download-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 70%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+#toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
 
 
 /* 📱 Responsive cho mobile */

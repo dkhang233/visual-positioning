@@ -2,19 +2,23 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Map Example</title>
-    <link rel="stylesheet" href="node_modules/ol/ol.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map Example</title>
+  <link rel="stylesheet" href="node_modules/ol/ol.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <div id="map"></div>
-    <div id="camera-popup">
-        <video id="camera-feed" autoplay playsinline></video>
-    </div>
-    <script type="module" src="src/main.js"></script>
+  <div id="map"></div>
+  <div id="camera-popup">
+    <!-- <img id="image-display" src="static/frame_00007.jpg" alt="Ảnh" /> -->
+    <video id="camera-feed" src="static/lab1.mp4" muted playsinline></video>
+    <button id="toggle-btn">Phát</button>
+    <button id="download-btn">Down</button>
+  </div>
+  <!-- <img id="query" src="static/query.jpg"> -->
+  <script type="module" src="src/main.js"></script>
 </body>
 
 </html>
