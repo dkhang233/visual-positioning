@@ -10,22 +10,18 @@
 </head>
 
 <body>
-  <div id="overlay-upload">
-    <form id="upload-form">
-      <h2>Chọn ảnh để tải lên</h2>
-      <input type="file" accept="image/*" />
-      <button type="submit">Tải lên</button>
-    </form>
-  </div>
-
   <div id="map"></div>
+  <div id="legend" class="ol-legend"></div>
   <div id="camera-popup">
     <!-- <img id="image-display" src="static/frame_00007.jpg" alt="Ảnh" /> -->
-    <video id="camera-feed" muted playsinline autoplay></video>
+    <video id="camera-feed" src="static/lab3.mp4" muted playsinline></video>
     <button id="toggle-btn">Phát</button>
   </div>
+  <div id="image-tooltip">
+    <img src="" alt="Hình ảnh" />
+  </div>
   <div id="notification" class="hidden">Đây là thông báo!</div>
-  <div id="info">Hello</div>
+  <!-- <div id="info">Hello</div> -->
   <!-- <img id="query" src="static/query.jpg"> -->
   <script type="module" src="src/main.js"></script>
 </body>

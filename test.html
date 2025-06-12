@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Image Sender</title>
+</head>
+
+<body>
+    <h2>Send Image via WebSocket</h2>
+    <input type="file" id="fileInput" />
+    <button onclick="sendImage()">Send</button>
+    <pre id="log"></pre>
+
+    <script>
+        let start;
+        let eval = false;
+
+        let ws = new WebSocket("ws://localhost:8000/localize"); // Thay đổi URL nếu cần
+
+        ws.onopen = () => {
+            log("WebSocket connected.");
+        };
+
+        ws.onmessage = (event) => {
+            if (eval) {
+                let end = performance.now();
+                log("Time: " + (end - start) + "ms");
+                eval = false;
+            }
+            log("Server: " + event.data);
+        };
+
+        ws.onerror = (err) => {
+            log("WebSocket error: " + err);
+        };
+
+        function log(message) {
+            document.getElementById("log").textContent += message + "\n";
+        }
+
+        function sendImage() {
+            const fileInput = document.getElementById("fileInput");
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select an image first!");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function () {
+                const base64Data = reader.result.split(',')[1]; // Loại bỏ "data:image/xxx;base64,"
+                ws.send(base64Data);
+                log("Image sent!");
+            };
+            reader.readAsDataURL(file);
+            eval = true;
+            start = performance.now();
+        }
+    </script>
+</body>
+
+</html>
