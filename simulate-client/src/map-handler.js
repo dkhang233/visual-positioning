@@ -1,124 +1,108 @@
-import VectorSource from 'ol/source/Vector';
-import VectorLayer from 'ol/layer/Vector';
+// OpenLayers Imports
 import Map from 'ol/Map';
 import View from 'ol/View';
-import GeoJSON from 'ol/format/GeoJSON.js';
-import data from '../static/corridor-map.json';
-import gt from '../static/corridor-gt.json';
-import DragRotateAndZoom from 'ol/interaction/DragRotateAndZoom.js';
-import { defaults as defaultInteractions } from 'ol/interaction/defaults.js';
-import Feature from 'ol/Feature.js';
-import Point from 'ol/geom/Point.js';
-import Polygon from 'ol/geom/Polygon.js';
-import LineString from 'ol/geom/LineString.js';
+import Feature from 'ol/Feature';
+import VectorSource from 'ol/source/Vector';
+import VectorLayer from 'ol/layer/Vector';
 import { Stroke, Style, Icon, Fill, Text } from 'ol/style';
 import { getCenter } from 'ol/extent';
+import { defaults as defaultInteractions } from 'ol/interaction/defaults';
+import DragRotateAndZoom from 'ol/interaction/DragRotateAndZoom';
+import GeoJSON from 'ol/format/GeoJSON';
+import Point from 'ol/geom/Point';
+import Polygon from 'ol/geom/Polygon';
+import LineString from 'ol/geom/LineString';
+
+// Data Imports
+import data from '../static/corridor-map.json';
+import gt from '../static/corridor-gt.json';
 
 const windowSize = 10;
-
 let vectorSource;
 let currentLocation = null;
 let lineData = [];
 
 const styleMap = {
-    "room": new Style({
-        stroke: new Stroke({
-            color: 'black',    // Viền màu đen
-            width: 2,          // Có thể điều chỉnh
-            opacity: 0         // Opacity không được set ở đây trực tiếp
-        }),
-        fill: new Fill({
-            color: 'rgba(255, 255, 255, 1)'  // màu trắng, độ trong suốt = 1
-        })
-    }),
-    "wall": new Style({
-        stroke: new Stroke({
-            color: 'black',    // Viền màu đen
-            width: 2,          // Có thể điều chỉnh
-            opacity: 0         // Opacity không được set ở đây trực tiếp
-        }),
-        fill: new Fill({
-            color: 'rgba(255, 255, 255, 1)'  // màu trắng, độ trong suốt = 1
-        })
-    }),
-    'door': new Style({
-        stroke: new Stroke({ color: 'white', width: 3 }),
-    }),
-    'table': new Style({
-        stroke: new Stroke({ color: 'gray', width: .5, opacity: 0.25 }),
-    }),
-    'default': new Style({
-        stroke: new Stroke({ color: 'gray', width: 1 }),
-    })
+    room: createFillStyle('rgba(255, 255, 255, 1)', 'black', 2),
+    wall: createFillStyle('rgba(255, 255, 255, 1)', 'black', 2),
+    door: createStrokeStyle('white', 3),
+    table: createStrokeStyle('gray', 0.5),
+    default: createStrokeStyle('gray', 1)
 };
 
+function createFillStyle(fillColor, strokeColor, strokeWidth) {
+    return new Style({
+        stroke: new Stroke({ color: strokeColor, width: strokeWidth }),
+        fill: new Fill({ color: fillColor })
+    });
+}
+
+function createStrokeStyle(strokeColor, strokeWidth) {
+    return new Style({ stroke: new Stroke({ color: strokeColor, width: strokeWidth }) });
+}
+
+function createLabelStyle(className, displayName) {
+    let iconSrc = null;
+    if (className.startsWith("wc")) iconSrc = 'static/wc-icon.png';
+    else if (className.startsWith("tech")) iconSrc = 'static/technical-icon.png';
+
+    return new Style({
+        image: iconSrc
+            ? new Icon({
+                crossOrigin: 'anonymous',
+                anchor: [0.5, 1.2],
+                src: iconSrc,
+                scale: 1,
+                rotateWithView: true
+            })
+            : undefined,
+        text: new Text({
+            text: displayName,
+            font: '14px Arial',
+            fill: new Fill({ color: '#000' }),
+            stroke: new Stroke({ color: '#fff', width: 2 })
+        })
+    });
+}
+
+function createDisplayName(className) {
+    if (className.startsWith("wc")) return "WC";
+    if (className.startsWith("tech")) return "Kỹ Thuật";
+    if (className.startsWith("lift")) return "Thang máy";
+    if (className.startsWith("exit")) return "Thang bộ";
+    if (className.startsWith("mechanic")) return "Trường cơ khí";
+    return className.toUpperCase();
+}
+
+async function getMapData() {
+    return data;
+}
 
 async function loadMap() {
-    const geojsonObject = await getMapData(); // Đảm bảo rằng bạn đã nhập đúng dữ liệu GeoJSON từ file JSON của bạn
+    const geojsonObject = await getMapData();
     const mapFeatures = new GeoJSON().readFeatures(geojsonObject);
     const labelFeatures = [];
 
     mapFeatures.forEach(feature => {
-        let className = feature.getProperties()['class'].split('-')[0];
-        console.log(className)
+        let className = feature.get('class');
+        let style = styleMap[className?.split('-')[0]] || styleMap.default;
+        let displayName = createDisplayName(className);
 
-        let style;
+        let isDoor = className?.startsWith('door') || className?.startsWith('exit') || className?.startsWith('wc') || className?.startsWith('lift');
+        if (isDoor) {
+            style = styleMap.door;
+        }
 
-
-        if (className.startsWith('e8') || className.startsWith('m8')) {
-            className = className.toUpperCase();
-            style = styleMap['door'];
-        }
-        else if (className == 'exit') {
-            className = "Cửa thoát hiểm";
-            style = styleMap['door'];
-        }
-        else if (className === 'lift') {
-            className = "Thang máy ";
-            style = styleMap['door'];
-        }
-        else if (className === 'lift') {
-            className = "Thang máy ";
-            style = styleMap['door'];
-        }
-        else if (className === 'tech') {
-            className = "Kỹ thuật";
-        }
-        else {
-            style = styleMap[className || 'default'];
-        }
         feature.setStyle(style);
+        if (className?.startsWith('wall')) return;
 
-
-        if (className === 'wall')
-            return; // Bỏ qua các tường, không cần hiển thị chữ
-
-        // Tìm tâm của hình để đặt chữ
         const center = getCenter(feature.getGeometry().getExtent());
-
-        // Tạo feature mới là điểm để hiển thị chữ
-        const labelFeature = new Feature({
-            geometry: new Point(center),
-        });
-
-        const labelStyle = new Style({
-            text: new Text({
-                text: className,
-                font: '14px Arial',
-                fill: new Fill({ color: '#000' }),
-                stroke: new Stroke({ color: '#fff', width: 2 }),
-            })
-        });
-
-        labelFeature.setStyle(labelStyle);
-
+        const labelFeature = new Feature({ geometry: new Point(center) });
+        labelFeature.setStyle(createLabelStyle(className, displayName));
         labelFeatures.push(labelFeature);
     });
 
-    // Tạo một layer vector sử dụng GeoJSON
-    vectorSource = new VectorSource({
-        features: [...mapFeatures, ...labelFeatures]// Kết hợp các feature từ mapFeatures và labelFeatures
-    });
+    vectorSource = new VectorSource({ features: [...mapFeatures, ...labelFeatures] });
 
     const vectorLayer = new VectorLayer({
         source: vectorSource,
@@ -130,180 +114,75 @@ async function loadMap() {
         source: new VectorSource({
             features: [
                 new Feature({
-                    geometry: new Polygon([[
-                        [-180, -90],
-                        [180, -90],
-                        [180, 90],
-                        [-180, 90],
-                        [-180, -90]
-                    ]])
+                    geometry: new Polygon([[[-180, -90], [180, -90], [180, 90], [-180, 90], [-180, -90]]])
                 })
             ]
         }),
-        style: new Style({
-            fill: new Fill({
-                color: '#cccccc' // xám nhạt
-            })
-        }),
+        style: new Style({ fill: new Fill({ color: '#cccccc' }) }),
         updateWhileInteracting: true,
         updateWhileAnimating: true
     });
 
-
-    const tooltipElement = document.getElementById('image-tooltip');
-    const tooltipImage = tooltipElement.querySelector('img');
-
-    // const imageOverlay = new Overlay({
-    //     element: tooltipElement,
-    //     stopEvent: false,
-    //     positioning: 'bottom-right',
-    //     offset: [-400, 0],
-    // });
-
-    // Tạo bản đồ
-    const map = new Map({
+    new Map({
         target: 'map',
         interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
         layers: [backgroundLayer, vectorLayer],
-        view: new View({
-            center: [0, 0],
-            // rotation: Math.PI / 2,
-            zoom: 23.4,
-        }),
+        view: new View({ center: [0, 0], zoom: 23.4 })
     });
-
-    // map.addOverlay(imageOverlay);
-    // map.on('pointermove', function (evt) {
-    //     const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-    //         return feature;
-    //     });
-
-    //     if (feature) {
-    //         // Giả sử bạn lưu URL ảnh trong feature properties: feature.set('imageUrl', '...')
-    //         const imageUrl = feature.get('imageUrl');
-    //         if (imageUrl) {
-    //             tooltipImage.src = imageUrl;
-    //             tooltipElement.style.display = 'block';
-    //             imageOverlay.setPosition(evt.coordinate);
-    //         } else {
-    //             tooltipElement.style.display = 'none';
-    //         }
-    //     } else {
-    //         tooltipElement.style.display = 'none';
-    //     }
-    // });
-}
-
-async function getMapData() {
-    const mapData = data
-    return mapData;
 }
 
 async function updatePosition(x, z, yaw, id) {
     let position = [x, z];
 
-    if (currentLocation === null) {
-        // Tạo một marker 
-        currentLocation = new Feature({
-            geometry: new Point([1.4697190474684183, 0.8879343993375413]),
-        });
-        // Phong cách marker
-        currentLocation.setStyle(new Style({
-            image: new Icon({
-                crossOrigin: 'anonymous',
-                anchor: [0.5, 0.5],
-                src: 'static/current-location.png',
-                scale: 0.4,
-                rotateWithView: true
-            }),
-            zIndex: 2  // Ưu tiên cao
-        }));
+    if (!currentLocation) {
+        currentLocation = new Feature({ geometry: new Point(position) });
+        currentLocation.setStyle(
+            new Style({
+                image: new Icon({
+                    crossOrigin: 'anonymous',
+                    anchor: [0.5, 0.5],
+                    src: 'static/current-location.png',
+                    scale: 0.4,
+                    rotateWithView: true
+                }),
+                zIndex: 2
+            })
+        );
         vectorSource.addFeature(currentLocation);
     }
 
-
-    // Draw line from previous position to current position
-    let dataLength = lineData.length;
+    const dataLength = lineData.length;
     if (dataLength > 0) {
-        let distanceWithPrevious = Math.sqrt(
-            Math.pow(position[0] - lineData[lineData.length - 1][0], 2) +
-            Math.pow(position[1] - lineData[lineData.length - 1][1], 2)
-        );
+        drawLine([gt[dataLength - 1].x, gt[dataLength - 1].z], [gt[dataLength].x, gt[dataLength].z], 'red', 2);
+        const [prevX, prevZ] = lineData[dataLength - 1];
+        const distance = Math.hypot(position[0] - prevX, position[1] - prevZ);
 
-        console.log("Distance with previous: ", distanceWithPrevious);
+        if (distance > 1) {
+            let dx = 0, dz = 0;
+            const maxIndex = Math.min(dataLength, windowSize);
 
-
-        if (distanceWithPrevious > 1) {
-            let distanceX = 0;
-            let distanceZ = 0
-            let maxIndex = Math.min(dataLength, windowSize);
             for (let i = 1; i < maxIndex; i++) {
-                distanceX += Math.abs(lineData[i][0] - lineData[i - 1][0]);
-                distanceZ += Math.abs(lineData[i][1] - lineData[i - 1][1]);
+                dx += Math.abs(lineData[i][0] - lineData[i - 1][0]);
+                dz += Math.abs(lineData[i][1] - lineData[i - 1][1]);
             }
-            distanceX = distanceX / maxIndex;
-            distanceZ = distanceZ / maxIndex;
-            position = [lineData[dataLength - 1][0] + distanceX, lineData[dataLength - 1][1] + distanceZ];
+
+            position = [prevX + dx / maxIndex, prevZ + dz / maxIndex];
         }
 
         currentLocation.getGeometry().setCoordinates(position);
-        let style = currentLocation.getStyle();
-        if (style && style.getImage) {
-            let icon = style.getImage();
-            icon.setRotation(yaw);
-        }
+        const icon = currentLocation.getStyle().getImage();
+        if (icon) icon.setRotation(yaw);
 
-        // Draw line from ground truth position
-        let start = [gt[dataLength - 1]["x"], gt[dataLength - 1]["z"]];
-        let end = [gt[dataLength]["x"], gt[dataLength]["z"]];
-        drawLine(start, end, 'red', 2, false);
-
-        // Draw line from estimated position
-        const lastPosition = lineData[dataLength - 1];
-
-        drawLine(lastPosition, position);
+        drawLine(lineData[dataLength - 1], position);
     }
 
     lineData.push(position);
 }
 
-
-function drawLine(start, end, color = 'blue', width = 1, hasImage = true) {
-    const line = new Feature({
-        geometry: new LineString([start, end])
-    });
-
-    line.setStyle(new Style({
-        stroke: new Stroke({
-            color: color,
-            width: width
-        })
-    }));
-
+function drawLine(start, end, color = 'blue', width = 1) {
+    const line = new Feature({ geometry: new LineString([start, end]) });
+    line.setStyle(new Style({ stroke: new Stroke({ color, width }) }));
     vectorSource.addFeature(line);
-
-    // if (hasImage) {
-    //     const point = new Feature({
-    //         geometry: new Point(end)
-    //     });
-
-    //     // Gán style
-    //     point.setStyle(
-    //         new Style({
-    //             image: new CircleStyle({
-    //                 radius: 2, // 👈 nhỏ thôi
-    //                 fill: new Fill({ color: 'blue' })// 👈 màu fill
-    //                 // stroke: new Stroke({ color: 'white', width: 1 }), // 👈 viền trắng mỏng
-    //             }),
-    //         })
-    //     );
-
-    //     const formatted = `frame_${String(count).padStart(5, '0')}.jpg`;
-    //     point.set('imageUrl', 'static/images/' + formatted);
-    //     vectorSource.addFeature(point);
-    //     count++;
-    // }
 }
 
-
-export { loadMap, updatePosition }
+export { loadMap, updatePosition };

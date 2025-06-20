@@ -283,7 +283,7 @@
         {
             "type": "Feature",
             "properties": {
-                "class": "out-0"
+                "class": "mechanic-0"
             },
             "geometry": {
                 "type": "MultiLineString",
