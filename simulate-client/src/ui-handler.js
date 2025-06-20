@@ -59,8 +59,8 @@ function initUI() {
             button.textContent = "Dừng";
 
             // Tạo canvas để lấy frame
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+            // const canvas = document.createElement('canvas');
+            // const ctx = canvas.getContext('2d');
 
             task = setInterval(() => {
                 if (ended) {
@@ -68,9 +68,9 @@ function initUI() {
                     clearInterval(task);
                     return;
                 }
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                // canvas.width = video.videoWidth;
+                // canvas.height = video.videoHeight;
+                // ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 // canvas.toBlob(blob => sendMessage(blob), 'image/jpeg', 0.5);
                 simulateSendMessage(id);
                 id++;

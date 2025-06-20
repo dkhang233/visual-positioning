@@ -4,7 +4,7 @@ import { initUI } from './ui-handler.js';
 
 loadMap();
 initUI();
-initWebSocket();
+// initWebSocket();
 
 
 

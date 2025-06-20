@@ -3,13 +3,13 @@ import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import GeoJSON from 'ol/format/GeoJSON.js';
-import data from '../static/map.json';
+import data from '../static/corridor-map.json';
 import DragRotateAndZoom from 'ol/interaction/DragRotateAndZoom.js';
 import { defaults as defaultInteractions } from 'ol/interaction/defaults.js';
 import Feature from 'ol/Feature.js';
 import Point from 'ol/geom/Point.js';
 import LineString from 'ol/geom/LineString.js';
-import { Stroke, Style, Icon } from 'ol/style';
+import { Stroke, Style, Icon, Fill } from 'ol/style';
 
 let currentLocation;
 let responses = {};

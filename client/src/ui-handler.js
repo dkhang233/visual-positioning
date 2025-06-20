@@ -1,6 +1,6 @@
-import { downloadResponses } from "./map-handler";
-import { sendMessage, simulateSendMessage } from "./ws-handler";
+import { sendMessage } from "./ws-handler";
 import EXIF from "exif-js";
+
 
 function initUI() {
     const popup = document.getElementById("camera-popup");
@@ -45,71 +45,61 @@ function initUI() {
 
     document.addEventListener("touchend", () => isDragging = false);
 
-    let ended = false;
-    const video = document.getElementById("camera-feed");
-
-    let exif_data;
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        .then((stream) => {
-            video.srcObject = stream;
-            const track = stream.getVideoTracks()[0];
-            let imageCapture = new ImageCapture(track);
-            imageCapture.takePhoto().then((blob) => {
-                const newFile = new File([blob], "MyJPEG.jpg", { type: "image/jpeg" });
-                EXIF.getData(newFile, function () {
-                    exif_data = EXIF.getAllTags(this);
-                    showData(JSON.stringify(exif_data))
-                    sendMessage(exif_data)
-                });
-            });
-        })
-        .catch((err) => {
-            showNotification("❌ Lỗi truy cập camera: " + err.message);
-        });
-
-
-
     const overlay = document.getElementById('overlay-upload');
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) {
             overlay.style.display = 'none'; // ẩn lớp overlay khi click ra ngoài
         }
     });
-    video.addEventListener('ended', () => {
-        ended = true;
-    });
 
-    const button = document.getElementById("toggle-btn");
+    document.getElementById("upload-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Ngăn form gửi đi
+        const fileInput = this.querySelector('input[type="file"]');
+        const file = fileInput.files[0];
 
-    let task;
-    let id = 0;
-    button.addEventListener("click", () => {
-        if (video.paused) {
-            video.play();
-            button.textContent = "Dừng";
-
-            // Tạo canvas để lấy frame
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-
-            task = setInterval(() => {
-                if (ended) {
-                    console.log("Video ended");
-                    clearInterval(task);
-                    return;
-                }
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                canvas.toBlob(blob => sendMessage(blob), 'image/jpeg', 0.5);
-                id++;
-            }, 500);
-        } else {
-            video.pause();
-            button.textContent = "Phát";
-            clearInterval(task);
+        if (!file) {
+            alert("Vui lòng chọn một ảnh!");
+            return;
         }
+
+        // Truyền trực tiếp `File` vào EXIF.getData
+        EXIF.getData(file, function () {
+            const allMetaData = EXIF.getAllTags(this);
+            console.log("EXIF data:", allMetaData);
+
+            // const lat = EXIF.getTag(this, "GPSLatitude");
+            // const lon = EXIF.getTag(this, "GPSLongitude");
+            // const orientation = EXIF.getTag(this, "Orientation");
+
+            // console.log("Latitude:", lat);
+            // console.log("Longitude:", lon);
+            // console.log("Orientation:", orientation);
+        });
     });
+
+
+    const video = document.getElementById("camera-feed");
+
+    navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { exact: "environment" } },
+        audio: false
+    }).then((stream) => {
+        video.srcObject = stream;
+        video.play();
+    }).catch((err) => {
+        console.error("Không thể truy cập camera:", err);
+    });
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // task = setInterval(() => {
+    //     canvas.width = video.videoWidth;
+    //     canvas.height = video.videoHeight;
+    //     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    //     canvas.toBlob(blob => sendMessage(blob), 'image/jpeg', 0.5);
+    //     id++;
+    // }, 500);
 }
 
 
@@ -123,11 +113,6 @@ function showNotification(message, duration = 3000) {
         notification.classList.remove('show');
         notification.classList.add('hidden');
     }, duration);
-}
-
-function showData(data) {
-    const dataContainer = document.getElementById('info');
-    dataContainer.innerHTML = data; // Xóa nội dung cũ
 }
 
 

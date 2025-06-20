@@ -1,0 +1,1390 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "wall-0"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            -7.089
+                        ],
+                        [
+                            -4.162,
+                            -7.09094
+                        ],
+                        [
+                            -4.17768,
+                            3.025
+                        ],
+                        [
+                            -0.18,
+                            3.025
+                        ],
+                        [
+                            -0.17026,
+                            4.90978
+                        ],
+                        [
+                            0.63787,
+                            4.91
+                        ],
+                        [
+                            0.63787,
+                            3.025
+                        ],
+                        [
+                            4.738,
+                            3.025
+                        ],
+                        [
+                            4.718,
+                            2.304
+                        ],
+                        [
+                            2.94184,
+                            2.304
+                        ],
+                        [
+                            2.942,
+                            -6.413
+                        ],
+                        [
+                            2.167,
+                            -6.41287
+                        ],
+                        [
+                            2.1668,
+                            2.304
+                        ],
+                        [
+                            -3.435,
+                            2.30369
+                        ],
+                        [
+                            -3.435,
+                            -7.089
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-6"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -2.94861,
+                            2.30369
+                        ],
+                        [
+                            -3.36972,
+                            2.30369
+                        ]
+                    ],
+                    [
+                        [
+                            -3.36972,
+                            2.30369
+                        ],
+                        [
+                            -2.94861,
+                            2.30369
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-7"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -1.83883,
+                            2.30369
+                        ],
+                        [
+                            -1.47801,
+                            2.30369
+                        ]
+                    ],
+                    [
+                        [
+                            -1.47801,
+                            2.30369
+                        ],
+                        [
+                            -1.83883,
+                            2.30369
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-9"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            0.36112,
+                            2.304
+                        ],
+                        [
+                            0.69813,
+                            2.304
+                        ]
+                    ],
+                    [
+                        [
+                            0.69813,
+                            2.304
+                        ],
+                        [
+                            0.36112,
+                            2.304
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-10"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            1.73729,
+                            2.304
+                        ],
+                        [
+                            2.05536,
+                            2.304
+                        ]
+                    ],
+                    [
+                        [
+                            2.05536,
+                            2.304
+                        ],
+                        [
+                            1.73729,
+                            2.304
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-8"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            0.16863,
+                            2.304
+                        ],
+                        [
+                            -0.22481,
+                            2.304
+                        ]
+                    ],
+                    [
+                        [
+                            -0.22481,
+                            2.304
+                        ],
+                        [
+                            0.16863,
+                            2.304
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-8"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -0.88107,
+                            2.30369
+                        ],
+                        [
+                            -1.24982,
+                            2.30369
+                        ]
+                    ],
+                    [
+                        [
+                            -0.88107,
+                            2.30369
+                        ],
+                        [
+                            -1.24982,
+                            2.30369
+                        ]
+                    ],
+                    [
+                        [
+                            -1.24982,
+                            2.30369
+                        ],
+                        [
+                            -0.88107,
+                            2.30369
+                        ]
+                    ],
+                    [
+                        [
+                            -1.24982,
+                            2.30369
+                        ],
+                        [
+                            -0.88107,
+                            2.30369
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "out-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.178,
+                            2.4
+                        ],
+                        [
+                            -4.17768,
+                            2.77595
+                        ]
+                    ],
+                    [
+                        [
+                            -4.17768,
+                            2.77595
+                        ],
+                        [
+                            -4.178,
+                            2.4
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "exit-1"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -0.18021,
+                            4.45238
+                        ],
+                        [
+                            -0.18021,
+                            4.778
+                        ]
+                    ],
+                    [
+                        [
+                            -0.18021,
+                            4.778
+                        ],
+                        [
+                            -0.18021,
+                            4.45238
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-11"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        [
+                            1.6557,
+                            3.025
+                        ],
+                        [
+                            1.278,
+                            3.025
+                        ]
+                    ],
+                    [
+                        [
+                            1.278,
+                            3.025
+                        ],
+                        [
+                            1.6557,
+                            3.025
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-12"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.94773,
+                            3.025
+                        ],
+                        [
+                            3.34647,
+                            3.025
+                        ]
+                    ],
+                    [
+                        [
+                            3.34647,
+                            3.025
+                        ],
+                        [
+                            2.94773,
+                            3.025
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-13"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            1.46882
+                        ],
+                        [
+                            2.942,
+                            1.10497
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            1.10497
+                        ],
+                        [
+                            2.942,
+                            1.46882
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-16"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            0.06362
+                        ],
+                        [
+                            2.942,
+                            -0.28472
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            -0.28472
+                        ],
+                        [
+                            2.942,
+                            0.06362
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-18"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            -0.76912
+                        ],
+                        [
+                            2.942,
+                            -1.12257
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            -1.12257
+                        ],
+                        [
+                            2.942,
+                            -0.76912
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-20"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            -1.86992
+                        ],
+                        [
+                            2.942,
+                            -2.22833
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            -2.22833
+                        ],
+                        [
+                            2.942,
+                            -1.86992
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-21"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            -2.69404
+                        ],
+                        [
+                            2.942,
+                            -2.32037
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            -2.32037
+                        ],
+                        [
+                            2.942,
+                            -2.69404
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-23"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            -3.28411
+                        ],
+                        [
+                            2.942,
+                            -3.62698
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            -3.62698
+                        ],
+                        [
+                            2.942,
+                            -3.28411
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "exit-3"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.942,
+                            -5.27707
+                        ],
+                        [
+                            2.942,
+                            -4.87681
+                        ]
+                    ],
+                    [
+                        [
+                            2.942,
+                            -4.87681
+                        ],
+                        [
+                            2.942,
+                            -5.27707
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-25"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.1668,
+                            -4.95006
+                        ],
+                        [
+                            2.1668,
+                            -4.51793
+                        ]
+                    ],
+                    [
+                        [
+                            2.1668,
+                            -4.51793
+                        ],
+                        [
+                            2.1668,
+                            -4.95006
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-14"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.1668,
+                            0.97253
+                        ],
+                        [
+                            2.1668,
+                            0.66939
+                        ]
+                    ],
+                    [
+                        [
+                            2.1668,
+                            0.66939
+                        ],
+                        [
+                            2.1668,
+                            0.97253
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-15"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.1668,
+                            0.2803
+                        ],
+                        [
+                            2.167,
+                            -0.0035
+                        ]
+                    ],
+                    [
+                        [
+                            2.167,
+                            -0.0035
+                        ],
+                        [
+                            2.1668,
+                            0.2803
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-17"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": []
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-19"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.167,
+                            -1.81222
+                        ],
+                        [
+                            2.167,
+                            -2.11834
+                        ]
+                    ],
+                    [
+                        [
+                            2.167,
+                            -2.11834
+                        ],
+                        [
+                            2.167,
+                            -1.81222
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-24"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.167,
+                            -3.8614
+                        ],
+                        [
+                            2.167,
+                            -3.52526
+                        ]
+                    ],
+                    [
+                        [
+                            2.167,
+                            -3.52526
+                        ],
+                        [
+                            2.167,
+                            -3.8614
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-22"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            2.167,
+                            -2.95298
+                        ],
+                        [
+                            2.17545,
+                            -3.36812
+                        ]
+                    ],
+                    [
+                        [
+                            2.17545,
+                            -3.36812
+                        ],
+                        [
+                            2.167,
+                            -2.95298
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "lift-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            0.638,
+                            3.91685
+                        ],
+                        [
+                            0.63787,
+                            4.63139
+                        ]
+                    ],
+                    [
+                        [
+                            0.63787,
+                            4.63139
+                        ],
+                        [
+                            0.638,
+                            3.91685
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "exit-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -6.32577
+                        ],
+                        [
+                            -4.17587,
+                            -6.74289
+                        ]
+                    ],
+                    [
+                        [
+                            -4.17587,
+                            -6.74289
+                        ],
+                        [
+                            -4.162,
+                            -6.32577
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m817-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -5.50467
+                        ],
+                        [
+                            -4.162,
+                            -5.17518
+                        ]
+                    ],
+                    [
+                        [
+                            -4.162,
+                            -5.17518
+                        ],
+                        [
+                            -4.162,
+                            -5.50467
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m818-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -4.7686
+                        ],
+                        [
+                            -4.162,
+                            -4.43954
+                        ]
+                    ],
+                    [
+                        [
+                            -4.162,
+                            -4.43954
+                        ],
+                        [
+                            -4.162,
+                            -4.7686
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -3.798
+                        ],
+                        [
+                            -4.162,
+                            -3.39538
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-1"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -2.97119
+                        ],
+                        [
+                            -4.162,
+                            -2.55989
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-2"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -1.78191
+                        ],
+                        [
+                            -4.162,
+                            -1.37847
+                        ]
+                    ],
+                    [
+                        [
+                            -4.162,
+                            -1.37847
+                        ],
+                        [
+                            -4.162,
+                            -1.78191
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-3"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            -1.07767
+                        ],
+                        [
+                            -4.162,
+                            -0.71699
+                        ]
+                    ],
+                    [
+                        [
+                            -4.162,
+                            -0.71699
+                        ],
+                        [
+                            -4.162,
+                            -1.07767
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "m8x-4"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -4.162,
+                            0.10826
+                        ],
+                        [
+                            -4.162,
+                            0.48625
+                        ]
+                    ],
+                    [
+                        [
+                            -4.162,
+                            0.48625
+                        ],
+                        [
+                            -4.162,
+                            0.10826
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "door-1"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": []
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e802-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            -6.70482
+                        ],
+                        [
+                            -3.435,
+                            -7.059
+                        ]
+                    ],
+                    [
+                        [
+                            -3.435,
+                            -7.059
+                        ],
+                        [
+                            -3.435,
+                            -6.70482
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e804-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            -5.53469
+                        ],
+                        [
+                            -3.435,
+                            -5.86336
+                        ]
+                    ],
+                    [
+                        [
+                            -3.435,
+                            -5.86336
+                        ],
+                        [
+                            -3.435,
+                            -5.53469
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-1"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            -4.06444
+                        ],
+                        [
+                            -3.435,
+                            -4.29396
+                        ]
+                    ],
+                    [
+                        [
+                            -3.435,
+                            -4.29396
+                        ],
+                        [
+                            -3.435,
+                            -4.06444
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-2"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            -1.28281
+                        ],
+                        [
+                            -3.435,
+                            -1.61971
+                        ]
+                    ],
+                    [
+                        [
+                            -3.435,
+                            -1.61971
+                        ],
+                        [
+                            -3.435,
+                            -1.28281
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-3"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            0.63859
+                        ],
+                        [
+                            -3.435,
+                            0.30948
+                        ]
+                    ],
+                    [
+                        [
+                            -3.435,
+                            0.30948
+                        ],
+                        [
+                            -3.435,
+                            0.63859
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.435,
+                            -4.70272
+                        ],
+                        [
+                            -3.435,
+                            -4.49396
+                        ]
+                    ],
+                    [
+                        [
+                            -3.435,
+                            -4.49396
+                        ],
+                        [
+                            -3.435,
+                            -4.70272
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-4"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -3.53891,
+                            3.025
+                        ],
+                        [
+                            -3.95766,
+                            3.025
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "e8x-5"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -2.90197,
+                            3.025
+                        ],
+                        [
+                            -2.50751,
+                            3.025
+                        ]
+                    ],
+                    [
+                        [
+                            -2.50751,
+                            3.025
+                        ],
+                        [
+                            -2.90197,
+                            3.025
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "wc-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -1.64737,
+                            3.025
+                        ],
+                        [
+                            -1.20748,
+                            3.025
+                        ]
+                    ],
+                    [
+                        [
+                            -1.20748,
+                            3.025
+                        ],
+                        [
+                            -1.64737,
+                            3.025
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "class": "tech-0"
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            -0.747,
+                            3.025
+                        ],
+                        [
+                            -0.52179,
+                            3.025
+                        ]
+                    ],
+                    [
+                        [
+                            -0.52179,
+                            3.025
+                        ],
+                        [
+                            -0.747,
+                            3.025
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

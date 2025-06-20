@@ -1,5 +1,5 @@
 import { updatePosition } from "./map-handler";
-import estimateData from '../static/estimate.json';
+import estimateData from '../static/corridor-estimate.json';
 import { showNotification } from "./ui-handler";
 
 
